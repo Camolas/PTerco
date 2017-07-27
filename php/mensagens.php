@@ -93,7 +93,7 @@
             <div class="modal-body">
 
 
-                <form role="form">
+                <form role="form" method="post">
 
 
                     <div class="form-group">
@@ -104,7 +104,7 @@
                             for ($i = 1; $i <= count($numeroUtilizadores); $i++) {
                             ?>
 
-                                <option value="<?php $userid ?> (<?php $userfuncao?>)"><?php $userName ?></option>
+                                <option value="<?= $userid ?> (<?= $userfuncao?>)"><?= $userName ?></option>
                                 <option value="user2">João Soares (Director)</option>
                                 <option value="user3">Maria Silva (Educadora)</option>
 

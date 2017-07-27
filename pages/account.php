@@ -1,4 +1,18 @@
+<?php
+
+    if (isset($_GET["msg"])){
+        $msg = $_GET["msg"];
+        $prf = 0;
+    } else {
+        $msg = 0;
+        $prf = 1;
+    }
+
+?>
+
+
 <?php include "../php/head.php";?>
+
 
 
 <div id="wrapper">
@@ -22,9 +36,10 @@
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-tabs">
 
-                                    <li class="active"><a href="#profile" data-toggle="tab">Perfil</a>
+
+                                    <li <?php if ($prf == 1){ echo "class='active'";}?>><a href="#profile" data-toggle="tab">Perfil</a>
                                     </li>
-                                    <li><a href="#messages" data-toggle="tab">Mensagens</a>
+                                    <li <?php if ($msg == 1){ echo "class='active'"; }?>><a href="#messages" data-toggle="tab">Mensagens</a>
                                     </li>
                                     <li><a href="settings.php" >Definições</a>
                                     </li>
@@ -35,14 +50,14 @@
 
 
 
-                                    <div class="tab-pane fade in active" id="profile">
+                                    <div class="tab-pane fade <?php if ($prf == 1){ echo "in active";}?>" id="profile">
 
                                         <?php include "../php/perfil.php" ?>
 
                                     </div>
 
 
-                                    <div class="tab-pane fade" id="messages">
+                                    <div class="tab-pane fade <?php if ($msg == 1){ echo "in active";}?>" id="messages">
                                         <?php include "../php/mensagens.php"?>
 
                                     </div>

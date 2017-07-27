@@ -4,10 +4,14 @@
 <meta http-equiv="refresh" content="0;url=pages/index.php">
 <title>IP Terço</title>
 <script language="javascript">
-    window.location.href = "pages/index.php"
+    window.location.href = "pages/login.php"
 </script>
 </head>
 <body>
-<a href="pages/index.php"></a>
+
+
+<a href="pages/login.php"></a>
 </body>
 </html>
+
+

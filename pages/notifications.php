@@ -31,7 +31,7 @@
                     </a>
                 </div>
                 <div class="col-lg-4">
-                    <a href="#">
+                    <a href="account.php?msg=1">
                     <div class="panel panel-success">
                         <div class="panel-heading">
                             Mensagem enviada

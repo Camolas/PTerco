@@ -1,4 +1,24 @@
+<?php
+
+$arrayInserir = array("novo jovem","novo utilizador", "novo evento", "novo contacto", "nova comunicação interna", "novo registo/relatório", "novo fornecedor", "nova entidade parceira", "novo prestador de serviços", "nova formação anual", "novo medicamento", "novo produto");
+
+$arrayProcessoChave = array("[PC01/02/03/04] Creche do Gi","[PC05/06/07] Nascente", "[PC05/06/07] Poente", "[PC05/06/07] Raíz", "[PC05/06/07] Apartamento de Autonomização", "[PC05/06/07] Grupo cessação de Acolhimento", "[PC08] Organização e Gestão das Atividades");
+
+$arrayPedidosJustificacoes = array("Pedido de dias", "Justificação de faltas", "Marcação de férias", "Relatórios de estragos", "Comunicações/Pedidos urgentes");
+
+$arrayPS01 = array("PS01_IMP01 - Formulário de Admissão do Colaborador","PS01_IMP02 – Ação Pontual de Formação", "PS01_IMP03 – Plano de Formação", "PS01_IMP04 – Questionário de Avaliação dos Colaboradores", "PS01_IMP05 - Avaliação de Desempenho", "PS01_IMP06 - Declaração de Confidencialidade", "PS01_IMP07 - Avaliação e Auto avaliação dos Voluntários", "PS01_IMP08 - Termo de Adesão", "PS01_IMP09 - Requisição de Material", "PS01_IMP010 - Registo de Receção de Produtos", "PS01_IMP11 - Devolução e Reclamações a fornecedores", "PS01_IMP12 - Avaliação de Fornecedores", "PS01_IMP13 - Avaliação dos Prestadores de Serviços", "PS01_IMP14 - Plano de Manutenção", "PS01_IMP15 - Registo de intervenção em equipamentos e infraestruturas", "PS01_IMP16 - Registo de Formação Individual", "NA - Lista de Fornecedores");
+
+$inserir;
+$PC;
+$pedidosJustificacoes;
+$processoSuporte01;
+
+?>
+
+
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+
+    <!-- navbar-header -->
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -10,7 +30,11 @@
     </div>
     <!-- /.navbar-header -->
 
+
+    <!-- navbar-topo -->
     <ul class="nav navbar-top-links navbar-right">
+
+        <!-- dropdown-messages -->
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -41,17 +65,16 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a class="text-center" href="account.php">
+                    <a class="text-center" href="account.php?msg=1">
                         <strong>Ler todas as mensagens</strong>
                         <i class="fa fa-angle-right"></i>
                     </a>
                 </li>
             </ul>
-            <!-- /.dropdown-messages -->
         </li>
+        <!-- /.dropdown-messages -->
 
-
-        <!-- NOTIFICAÇÕES -->
+        <!-- dropdown-notificacoes -->
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -93,9 +116,10 @@
                     </a>
                 </li>
             </ul>
-            <!-- /.dropdown-alerts -->
         </li>
-        <!-- /.dropdown -->
+        <!-- /.dropdown-notificacoes -->
+
+        <!-- /.dropdown-user -->
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -110,18 +134,22 @@
                 </li>
             </ul>
 
-
-            <!-- /.dropdown-user -->
         </li>
-        <!-- /.dropdown -->
+        <!-- /.dropdown-user -->
+
     </ul>
-    <!-- /.navbar-top-links -->
+    <!-- ./ navbar-topo -->
+
+
 
     <!-- MENU PRINCIPAL -->
 
     <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
+            <!-- MENU -->
             <ul class="nav" id="side-menu">
+
+                <!-- PESQUISAR -->
                 <li class="sidebar-search">
                     <div class="input-group custom-search-form">
                         <input type="text" class="form-control" placeholder="Pesquisar">
@@ -129,41 +157,42 @@
                                 <button class="btn btn-default" type="button">
                                     <i class="fa fa-search"></i>
                                 </button>
-                            </span>
+                        </span>
                     </div>
-                    <!-- /input-group -->
                 </li>
+                <!-- ./ PESQUISAR -->
+
+                <!-- HOME -->
                 <li>
                     <a href="index.php"><i class="fa fa-home fa-fw"></i> Página inicial</a>
                 </li>
+                <!-- ./ HOME -->
+
+                <!-- PROCESSOS CHAVE -->
                 <li>
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> PC - Processos Chave<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li>
-                            <a href="#">[PC01/02/03/04] Creche do Gi</a>
-                        </li>
-                        <li>
-                            <a href="#">[PC05/06/07] Nascente</a>
-                        </li>
-                        <li>
-                            <a href="#">[PC05/06/07] Poente</a>
-                        </li>
-                        <li>
-                            <a href="#">[PC05/06/07] Raíz</a>
-                        </li>
-                        <li>
-                            <a href="#">[PC05/06/07] Apartamento de Autonomização</a>
-                        </li>
-                        <li>
-                            <a href="#">[PC05/06/07] Grupo cessação de Acolhimento</a>
-                        </li>
-                        <li>
-                            <a href="#">[PC08] Organização e Gestão das Atividades</a>
-                        </li>
+
+                        <?php for ($x=0; $x<count($arrayProcessoChave); $x++){
+
+                            $PC = $arrayProcessoChave[$x];
+
+                            ?>
+
+                            <li>
+                                <a href="processoChave.php?idPC=<?= $x?>"><?= $PC?></a>
+                            </li>
+
+                            <?php
+                        }
+                        ?>
+
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
+                <!-- ./ PROCESSOS CHAVE-->
 
+                <!-- PROCESSOS DE SUPORTE -->
                 <li>
                     <a href="#"><i class="fa fa-sitemap fa-fw"></i> PS - Processos de Suporte<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
@@ -171,76 +200,41 @@
                         <li>
                             <a href="#">[PS01] Gestão de Recursos e Aprovisionamentos <span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
-                                <li>
-                                    <a href="#">[PS01_IMP01] Formulário de Admissão do Colaborador</a>
-                                </li>
-                                <li>
-                                    <a href="#">[PS01_IMP02] Ação Pontual de Formação</a>
-                                </li>
-                                <li>
-                                    <a href="#">[PS01_IMP03] Plano de Formação</a>
-                                </li>
-                                <li>
-                                    <a href="#">[PS01_IMP04] Questionário de Avaliação dos Colaboradores</a>
-                                </li>
-                                <li>
-                                    <a href="#">[PS01_IMP05] Avaliação de Desempenho</a>
-                                </li>
-                                <li>
-                                    <a href="#">[PS01_IMP06] Declaração de Confidencialidade</a>
-                                </li>
-                                <li>
-                                    <a href="#">[PS01_IMP07] Avaliação e Auto avaliação dos Voluntários</a>
-                                </li>
-                                <li>
-                                    <a href="#">[PS01_IMP08] Termo de Adesão</a>
-                                </li>
-                                <li>
-                                    <a href="#">[PS01_IMP09] Requisição de Material</a>
-                                </li>
-                                <li>
-                                    <a href="#">[PS01_IMP010] Registo de Receção de Produtos</a>
-                                </li>
-                                <li>
-                                    <a href="#">[PS01_IMP11] Devolução e Reclamações a fornecedores</a>
-                                </li>
-                                <li>
-                                    <a href="#">[PS01_IMP12] Avaliação de Fornecedores</a>
-                                </li>
-                                <li>
-                                    <a href="#">[PS01_IMP13] Avaliação dos Prestadores de Serviços</a>
-                                </li>
-                                <li>
-                                    <a href="#">[PS01_IMP14] Plano de Manutenção</a>
-                                </li>
-                                <li>
-                                    <a href="#">[PS01_IMP15] Registo de intervenção em equipamentos e infraestruturas</a>
-                                </li>
-                                <li>
-                                    <a href="#">[PS01_IMP16] Registo de Formação Individual</a>
-                                </li>
-                                <li>
-                                    <a href="#">[NA] Lista de Fornecedores</a>
-                                </li>
+
+                                <?php for ($z=0; $z<count($arrayPS01); $z++){
+
+                                    $processoSuporte01 = $arrayPS01[$z];
+
+                                    ?>
+
+                                    <li>
+                                        <a href="processoSuporte.php?idPS=<?= $z?>"><?= $processoSuporte01?></a>
+                                    </li>
+
+                                    <?php
+                                }
+                                ?>
+
+
                             </ul>
                             <!-- /.nav-third-level -->
                         </li>
 
                         <li>
-                            <a href="#">[PS02] Nutrição e Alimentação</a>
+                            <a href="processoSuporte.php?idPS=17">[PS02] Nutrição e Alimentação</a>
                         </li>
                         <li>
-                            <a href="#">[PS03] Higiene e Segurança</a>
+                            <a href="processoSuporte.php?idPS=18">[PS03] Higiene e Segurança</a>
                         </li>
                         <li>
-                            <a href="#">[PS04] Gestão do SGQ</a>
+                            <a href="processoSuporte.php?idPS=19">[PS04] Gestão do SGQ</a>
                         </li>
 
                         <li>
                             <a href="#">[NA] Protocolos <span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
                                 <li>
-                                    <a href="#">Lista de Entidades Parceiras</a>
+                                    <a href="processoSuporte.php?idPS=20">Lista de Entidades Parceiras</a>
                                 </li>
 
                             </ul>
@@ -250,7 +244,7 @@
                             <a href="#">[NA] Colaboradores/Estagiários e Voluntários <span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
                                 <li>
-                                    <a href="#">Processo individual dos Colaboradores/Estagiários e Voluntários</a>
+                                    <a href="processoSuporte.php?idPS=21">Processo individual dos Colaboradores/Estagiários e Voluntários</a>
                                 </li>
 
                             </ul>
@@ -259,53 +253,94 @@
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
+                <!-- ./ PROCESSOS DE SUPORTE -->
 
+                <!-- INSERIR NOVO X -->
                 <li>
-                    <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                    <a href="#"><i class="fa fa-edit fa-fw"></i> Inserir<span class="fa arrow"></a>
+                    <ul class="nav nav-second-level">
+
+                        <?php for ($i=0; $i<count($arrayInserir); $i++){
+
+                            $inserir = $arrayInserir[$i];
+
+                        ?>
+
+                            <li>
+                                <a href="insert.php?idinserir=<?= $i?>"><?= $inserir?></a>
+                            </li>
+
+                        <?php
+                        }
+                        ?>
+
+                    </ul>
                 </li>
+                <!-- .( INSERIR NOVO -->
+
+                <!-- STOCKS -->
                 <li>
-                    <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-table fa-fw"></i> Stocks<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="panels-wells.html">Panels and Wells</a>
+                            <a href="../pages/stocks.php?idStock=0">Cozinha</a>
                         </li>
                         <li>
-                            <a href="buttons.html">Buttons</a>
+                            <a href="../pages/stocks.php?idStock=1">Medicamentos</a>
                         </li>
                         <li>
-                            <a href="alerts.html">Notifications</a>
-                        </li>
-                        <li>
-                            <a href="typography.html">Typography</a>
-                        </li>
-                        <li>
-                            <a href="icons.html"> Icons</a>
-                        </li>
-                        <li>
-                            <a href="grid.html">Grid</a>
+                            <a href="../pages/stocks.php?idStock=2">Produtos de limpeza</a>
                         </li>
                     </ul>
-                    <!-- /.nav-second-level -->
                 </li>
+                <!-- ./ STOCKS -->
 
+                <!-- PEDIDOS E JUSTIFICAÇÕES -->
                 <li>
-                    <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-files-o fa-fw"></i>Pedidos e Justificações<span class="fa arrow"></a>
+                    <ul class="nav nav-second-level">
+
+                        <?php for ($y=0; $y<count($arrayPedidosJustificacoes); $y++){
+
+                            $pedidosJustificacoes = $arrayPedidosJustificacoes[$y];
+
+                            ?>
+
+                            <li>
+                                <a href="pedidosjustificacoes.php?idPedido=<?= $y?>"><?= $pedidosJustificacoes?></a>
+                            </li>
+
+                            <?php
+                        }
+                        ?>
+
+                    </ul>
+                </li>
+                <!-- ./ PEDIDOS E JUSTIFICAÇÕES -->
+
+                <!-- GERAL -->
+                <li>
+                    <a href="#"><i class="fa fa-wrench fa-fw"></i> Geral<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="blank.html">Blank Page</a>
+                            <a href="settings.php">Definições</a>
                         </li>
                         <li>
-                            <a href="login.php">Login Page</a>
+                            <a href="dadosJovem.php">Consulta de dados do Jovem</a>
+                        </li>
+                        <li>
+                            <a href="resultadosEstatisticos.php">Resultados estatísticos</a>
                         </li>
                     </ul>
-                    <!-- /.nav-second-level -->
                 </li>
+                <!-- ./ GERAL -->
+
+
             </ul>
+            <!-- ./ MENU -->
         </div>
         <!-- /.sidebar-collapse -->
     </div>
-    <!-- /.navbar-static-side -->
+    <!-- ./ MENU PRINCIPAL -->
+
 </nav>
