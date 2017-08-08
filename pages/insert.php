@@ -19,7 +19,7 @@ $inserirNovo = $arrayInserir[$idinserir];
 
     <script>
         function verify() {
-            if (!document.getElementByname('obrigatorio').value.trim().length) { // caso o tamanho seja zero , lança o alert
+            if (!document.getElementById('obrigatorio').value.trim().length) { // caso o tamanho seja zero , lança o alert
                 alert("Please enter the remarks");
             }
         }
@@ -45,7 +45,11 @@ $inserirNovo = $arrayInserir[$idinserir];
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Formulário de inserção
+
+
+
+
+                            Formulário de inserção??
                         </div>
 
 
@@ -74,12 +78,9 @@ $inserirNovo = $arrayInserir[$idinserir];
                                         <?php
 
                                         if ($idinserir == 0) { ?>
-
-
-
-
+                                        <a href="http://www.iptjovens.com/NovoJovem.php">Página antiga</a> <br>
                                         <div class="form-group">
-                                            <label>Numero de processo interno</label>
+                                            <label>Numero de processo interno:</label>
                                             <input class="form-control" placeholder="Introduzir número do processo" id="id"
                                                    name="id">
                                         </div>
@@ -87,12 +88,12 @@ $inserirNovo = $arrayInserir[$idinserir];
                                         <div class="form-group">
                                             <label>Nome completo</label>
                                             <input class="form-control" placeholder="Introduzir nome" id="nome"
-                                                   name="obrigatorio">
+                                                   name="nome">
                                         </div>
 
                                         <div class="form-group">
 
-                                            <label>Data de nascimento: </label>
+                                            <label>Data de nascimento</label>
                                             <input type="date" placeholder="Introduzir data" id="dataN"
                                                    name="obrigatorio">
                                         </div>
@@ -102,6 +103,7 @@ $inserirNovo = $arrayInserir[$idinserir];
                                             <input type="file">
                                             <br>
                                         </div>
+
 
                                         <div class="form-group">
                                             <label>Progenitor</label>
@@ -130,12 +132,12 @@ $inserirNovo = $arrayInserir[$idinserir];
                                                    name="irmão4">
                                         </div>
 
-                                        <div class="form-group">
-                                            <label>Grupo: </label>
+
+                                            <label>Grupo</label>
                                         <select>
-                                            <option value="gi">Creche do Gi</option>
-                                            <option value="poente">Casa Poente</option>
-                                            <option value="nascente">Casa Nascente</option>
+                                            <option value="saab">Creche do Gi</option>
+                                            <option value="volvo">Casa Poente</option>
+                                            <option value="mercedes">Casa Nascente</option>
                                             <option value="raiz">Casa Raiz</option>
                                             <option value="cessacaoAcolhimento">Cessação Acolhimento</option>
                                             <option value="preAdmissao">Pré-Admissão</option>
@@ -147,40 +149,16 @@ $inserirNovo = $arrayInserir[$idinserir];
 
                                         <div class="form-group">
                                             <label>Estabelicimento Ensino</label>
-                                            <br>
                                             <input class="form-control" placeholder="Introduzir ano" id="ano"
                                                    name="ano">
                                             <input class="form-control" placeholder="Introduzir escola" id="escola"
                                                    name="escola">
                                         </div>
 
-                                        <button type="submit" class="btn btn-primary value="Save" onclick="verify()">Guardar</button>
+                                        <button type="submit" class="btn btn-primary onclick="verify()">Guardar</button>
                                         <button type="reset" class="btn btn-danger">RESET</button>
 
                                     </form>
-
-                                    <form class="form" method="post" action="travel.php">
-                                        <div class="form-group">
-                                            <label for="name">Name</label>
-                                            <input type="text" name="name" class="form-control" id="name">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="reason">Reason for Visit</label>
-                                            <input type="text" name="reason" class="form-control" id="reason">
-                                        </div>
-                                    </form>
-
-
-                                    <FORM NAME="myform" ACTION="" METHOD="GET">
-                                        Enter something in the box: <BR>
-                                        <INPUT TYPE="text" NAME="inputbox" VALUE="">
-                                        <P>
-                                            <INPUT TYPE="button" NAME="button" Value="Click"
-                                                   onClick="testResults(this.form)">
-                                    </FORM>
-
-
                                     <!--for-->
 
 
@@ -191,6 +169,7 @@ $inserirNovo = $arrayInserir[$idinserir];
                                 <?php
                                 } else if ($idinserir == 1) { ?>
                                     <div class="form-group">
+                                        <p> <a href="http://www.iptjovens.com/NovoUtilizador.php">Página antiga     </a> </p>
                                         <label>Nome completo</label>
                                         <input class="form-control" placeholder="Introduzir nome" id="nome" name="nome">
                                     </div>
@@ -222,21 +201,43 @@ $inserirNovo = $arrayInserir[$idinserir];
                                                pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
                                     </div>
                                     <?php
-                                } else if ($idinserir == 2) {
+                                } else if ($idinserir == 2) {?>
+                                    <a href="http://www.iptjovens.com/AniversariosEventos.php">Página antiga</a>
+                                    <?php
                                     echo "";
-                                } else if ($idinserir == 3) {
+                                } else if ($idinserir == 3) {?>
+                                    <a href="http://www.iptjovens.com/adicionarContato.php">Página antiga</a>
+                                    <?php
                                     echo "";
-                                } else if ($idinserir == 4) {
+                                } else if ($idinserir == 4) {?>
+                                    <p>Ainda não existe página para a comunicação interna</p>
+                                    <!--<a href="./">Ainda não existe página para a comunicação interna</a>-->
+                                    <?php
                                     echo "";
-                                } else if ($idinserir == 5) {
-
+                                } else if ($idinserir == 5) {?>
+                                    <a href="http://www.iptjovens.com/registoSOS.php">Página registoSOS</a> <br>
+                                    <a href="http://www.iptjovens.com/registoAgressoes.php">Página registoAgressoes</a> <br>
+                                    <a href="http://www.iptjovens.com/registoSuspensoes.php">Página registpSuspensoes</a> <br>
+                                    <a href="http://www.iptjovens.com/registoConsumos.php">Página registoConsumos</a> <br>
+                                    <a href="http://www.iptjovens.com/registoDinamica.php">Página registoDinamica</a> <br>
+                                    <a href="http://www.iptjovens.com/registoDinamicaGrupo.php">Página registoDinamicaGrupo</a> <br>
+                                    <a href="http://www.iptjovens.com/Registo_Fugas.php?Btn=Editar">Página registoFugas</a> <br>
+                                    <a href="http://www.iptjovens.com/Registos_noite_fim_de_semana.php">Página registoNoiteFdSemana</a> <br>
+                                    <?php
                                     echo "<div class=\"form-group\">
                                                 <label>Enviar ficheiro</label>
                                                 <input type=\"file\"></div>";
 
-                                } else if ($idinserir == 6) {
+                                } else if ($idinserir == 6) {?>
+                                    <a href="http://localhost/teste_recuperacaoBD/listafornecedores.php">Fornecedores</a>
+                                    <a href="http://www.iptjovens.com/listafornecedores.php">Lista de Fornecedores</a>
+                                    <?php
                                     echo "";
-                                } else if ($idinserir == 7) {
+                                } else if ($idinserir == 7) {?>
+
+
+
+                                    <?php
                                     echo "";
                                 } else if ($idinserir == 8) {
                                     echo "";

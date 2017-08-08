@@ -30,6 +30,14 @@ $processoChave = $arrayProcessoChave[$idPC];
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header"><?php echo $processoChave?></h1>
+
+
+
+                        <?php if ($idPC == 0){ ?>
+                        <a href="http://www.iptjovens.com/tabelaeregistoscrechegi.php">Página antiga</a> <br>
+                        <?php }; if ($idPC == 1){ ?>
+                        <a href="http://www.google.com/">outra</a> <br>
+                        <?php } ?>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>

@@ -1,12 +1,21 @@
+<?php
+session_start();
+require_once('../connection/connection.php');?>
 <?php include "../php/head.php";?>
 
-<?php
-$query = "SELECT * from datas";
-$result = mysqli_query($connection,$query);
-while($fetch = mysqli_fetch_row($result)){
-    echo "<p>". $fetch[0] . " - " . $fetch[1] . " - " . "</p>";
-}
-?>
+<!-- facebook plugin -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/pt_PT/sdk.js#xfbml=1&version=v2.10&appId=784592271713612";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- ./ facebook plugin -->
+
+
 
 <div id="wrapper">
         <!-- Navigation -->
@@ -71,16 +80,7 @@ while($fetch = mysqli_fetch_row($result)){
                                     </div>
                                 </li>
 
-                                <div id="embedded-feed" style="height:800px;width:400px;"></div>
-                                <script type="text/javascript" src="https://s0.assets-yammer.com/assets/platform_embed.js"></script>
-                                <script type="text/javascript">
-                                    yam.connect.embedFeed({
-                                        container: "#embedded-feed",
-                                        network: "voluntáriosterço-ipt",
-                                        feedType: "group",
-                                        feedId: "12280278"
-                                    });
-                                </script>
+
 
                                 <li class="left clearfix">
                                     <span class="chat-img pull-left">
@@ -131,6 +131,41 @@ while($fetch = mysqli_fetch_row($result)){
                     </div>
                     <!-- /.panel .chat-panel -->
 
+                    <div class="chat-panel panel panel-default">
+
+                        <div class="panel-heading">
+                            <i class="fa fa-rss fa-fw"></i> Yammer
+                            <div class="btn-group pull-right">
+                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-chevron-down"></i>
+                                </button>
+                                <ul class="dropdown-menu slidedown">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-refresh fa-fw"></i> Atualizar
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div id="embedded-feed" style="height:500px"></div>
+                            <script type="text/javascript" src="https://s0.assets-yammer.com/assets/platform_embed.js"></script>
+                            <script type="text/javascript">
+                                yam.connect.embedFeed({
+                                    container: "#embedded-feed",
+                                    network: "voluntáriosterço-ipt",
+                                    feedType: "group",
+                                    feedId: "12280278"
+                                });
+                            </script>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+
+
 
 
                 </div>
@@ -138,6 +173,20 @@ while($fetch = mysqli_fetch_row($result)){
 
 
                 <div class="col-lg-4">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-facebook fa-fw"></i> Facebook
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="fb-page" data-href="https://www.facebook.com/ipterco/" data-tabs="timeline" data-height="400" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false"><blockquote cite="https://www.facebook.com/ipterco/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/ipterco/">Instituto Profissional do Terço</a></blockquote></div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+
+
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bell fa-fw"></i> Notificações
@@ -173,7 +222,7 @@ while($fetch = mysqli_fetch_row($result)){
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bell fa-fw"></i> Informações úteis
+                            <i class="fa fa-info-circle fa-fw"></i> Informações úteis
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">

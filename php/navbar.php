@@ -181,6 +181,7 @@ $processoSuporte01;
 
                             <li>
                                 <a href="processoChave.php?idPC=<?= $x?>"><?= $PC?></a>
+
                             </li>
 
                             <?php
@@ -303,6 +304,14 @@ $processoSuporte01;
                         <?php for ($y=0; $y<count($arrayPedidosJustificacoes); $y++){
 
                             $pedidosJustificacoes = $arrayPedidosJustificacoes[$y];
+                            switch($y) {
+                                case 0: ?> <a href="http://www.iptjovens.com/tabelaeregistoscrechegi.php">Página registoSOS</a> <br>
+                                        <?php
+                                case 1: ?> <a href="http://www.iptjovens.com/tabelaeregistoscrechegi.php">Página registoSOS</a> <br>
+                                    <?php
+
+
+                            }
 
                             ?>
 
@@ -324,6 +333,9 @@ $processoSuporte01;
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="settings.php">Definições</a>
+                        </li>
+                        <li>
+                            <a href="settings.php">Consulta de dados de colaborador (administrador)</a> <!-- o javascript vai pelo href e este que altera o css--, assoicauma classe ativa a este link-->
                         </li>
                         <li>
                             <a href="dadosJovem.php">Consulta de dados do Jovem</a>
