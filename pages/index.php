@@ -1,7 +1,6 @@
 <?php
 session_start();
-require_once('../connection/connection.php');?>
-<?php include "../php/head.php";?>
+include "../php/head.php";?>
 
 <!-- facebook plugin -->
 <div id="fb-root"></div>
@@ -12,9 +11,7 @@ require_once('../connection/connection.php');?>
         js.src = "//connect.facebook.net/pt_PT/sdk.js#xfbml=1&version=v2.10&appId=784592271713612";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-
 <!-- ./ facebook plugin -->
-
 
 
 <div id="wrapper">
@@ -80,8 +77,6 @@ require_once('../connection/connection.php');?>
                                     </div>
                                 </li>
 
-
-
                                 <li class="left clearfix">
                                     <span class="chat-img pull-left">
                                         <img src="logotipoInterno-14.png" alt="User Avatar" class="img-circle" />
@@ -132,7 +127,6 @@ require_once('../connection/connection.php');?>
                     <!-- /.panel .chat-panel -->
 
                     <div class="chat-panel panel panel-default">
-
                         <div class="panel-heading">
                             <i class="fa fa-rss fa-fw"></i> Yammer
                             <div class="btn-group pull-right">
@@ -141,14 +135,13 @@ require_once('../connection/connection.php');?>
                                 </button>
                                 <ul class="dropdown-menu slidedown">
                                     <li>
-                                        <a href="#">
+                                        <a href="">
                                             <i class="fa fa-refresh fa-fw"></i> Atualizar
                                         </a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div id="embedded-feed" style="height:500px"></div>
@@ -165,6 +158,32 @@ require_once('../connection/connection.php');?>
                         <!-- /.panel-body -->
                     </div>
 
+                    <div class="chat-panel panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-rss fa-fw"></i> Google Calendar
+                            <div class="btn-group pull-right">
+                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-chevron-down"></i>
+                                </button>
+                                <ul class="dropdown-menu slidedown">
+                                    <li>
+                                        <a href="">
+                                            <i class="fa fa-refresh fa-fw"></i> Atualizar
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=282rpp91guv1ld5jf8dpk6b46g%40group.calendar.google.com&amp;color=%232F6309&amp;src=%23contacts%40group.v.calendar.google.com&amp;color=%232F6309&amp;ctz=Europe%2FLisbon" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+
+
+
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
 
 
 
@@ -186,15 +205,15 @@ require_once('../connection/connection.php');?>
                     </div>
                     <!-- /.panel -->
 
-
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bell fa-fw"></i> Notificações
+                            <i class="fa fa-info-circle fa-fw"></i> Notificações
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="list-group">
                                 <a href="#" class="list-group-item">
+                                    <iframe src="https://calendar.google.com/calendar/embed?mode=AGENDA&amp;height=450&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=282rpp91guv1ld5jf8dpk6b46g%40group.calendar.google.com&amp;color=%232F6309&amp;src=%23contacts%40group.v.calendar.google.com&amp;color=%232F6309&amp;ctz=Europe%2FLisbon" style="border-width:0" width="450" height="450" frameborder="0" scrolling="no"></iframe>
                                     <i class="fa fa-comment fa-fw"></i> Novo Comentário
                                     <span class="pull-right text-muted small"><em>4 minutos atrás</em>
                                     </span>
@@ -222,7 +241,7 @@ require_once('../connection/connection.php');?>
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-info-circle fa-fw"></i> Informações úteis
+                            <i class="fa fa-bell fa-fw"></i> Informações úteis
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -248,6 +267,12 @@ require_once('../connection/connection.php');?>
                             </div>
                         </div>
                         <!-- /.panel-body -->
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <i class="fa fa-bell fa-fw"></i> Eventos
+                            </div>
+
                     </div>
                     <!-- /.panel -->
 

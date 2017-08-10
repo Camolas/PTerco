@@ -17,13 +17,13 @@ $inserirNovo = $arrayInserir[$idinserir];
 
 <?php include "../php/head.php"; ?>
 
-    <script>
-        function verify() {
-            if (!document.getElementById('obrigatorio').value.trim().length) { // caso o tamanho seja zero , lança o alert
-                alert("Please enter the remarks");
-            }
+<script>
+    function verify() {
+        if (!document.getElementById('obrigatorio').value.trim().length) { // caso o tamanho seja zero , lança o alert
+            alert("Please enter the remarks");
         }
-    </script>
+    }
+</script>
 
 
 <div id="wrapper">
@@ -47,9 +47,7 @@ $inserirNovo = $arrayInserir[$idinserir];
                         <div class="panel-heading">
 
 
-
-
-                            Formulário de inserção??
+                            Formulário de inserção de dados
                         </div>
 
 
@@ -78,28 +76,29 @@ $inserirNovo = $arrayInserir[$idinserir];
                                         <?php
 
                                         if ($idinserir == 0) { ?>
-                                        <a href="http://www.iptjovens.com/NovoJovem.php">Página antiga</a> <br>
+                                        <a href="http://www.iptjovens.com/NovoJovem.php">Página antiga</a> <br> <br>
                                         <div class="form-group">
                                             <label>Numero de processo interno:</label>
-                                            <input class="form-control" placeholder="Introduzir número do processo" id="id"
+                                            <input class="form-control" placeholder="Introduzir número do processo"
+                                                   id="id"
                                                    name="id">
                                         </div>
 
                                         <div class="form-group">
                                             <label>Nome completo</label>
                                             <input class="form-control" placeholder="Introduzir nome" id="nome"
-                                                   name="nome">
+                                                   name="nome" required>
                                         </div>
 
                                         <div class="form-group">
 
                                             <label>Data de nascimento</label>
                                             <input type="date" placeholder="Introduzir data" id="dataN"
-                                                   name="obrigatorio">
+                                                   name="obrigatorio" required>
                                         </div>
 
                                         <div>
-                                            <label>Enviar ficheiro</label>
+                                            <label>Foto</label>
                                             <input type="file">
                                             <br>
                                         </div>
@@ -119,33 +118,51 @@ $inserirNovo = $arrayInserir[$idinserir];
 
                                         <div class="form-group">
                                             <label>Irmãos</label>
-                                            <input class="form-control" placeholder="Introduzir irmãos" id="irmão1"
-                                                   name="irmão1">
-                                            <br>
-                                            <input class="form-control" placeholder="Introduzir irmãos" id="irmão2"
-                                                   name="irmão2">
-                                            <br>
-                                            <input class="form-control" placeholder="Introduzir irmãos" id="irmão3"
-                                                   name="irmão3">
-                                            <br>
-                                            <input class="form-control" placeholder="Introduzir irmãos" id="irmão4"
-                                                   name="irmão4">
+
+                                            <div id="room_bros">
+                                                <div>
+                                                    <div class='label'>Bros:</div>
+                                                    <div class="content">
+                                                        <input class="form-control" placeholder="Introduzir irmãos"
+                                                               id=bros name=bros/><!--<small>(ft)</small> X </span>  subst instead: style="width:auto;" name="width[]" value=""
+                                                    <span>Length: <input type="text" style="width:48px;" namae="length[]" value="" /><small>(ft)</small></span>
+                                                    -->
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
                                         </div>
 
+                                        <script>
+                                            var bros = 0;
+                                            function add_fields() {
+                                                bros++;
+                                                var objTo = document.getElementById('room_bros')
+                                                var divtest = document.createElement("div");
+                                                divtest.innerHTML = '<div class="label">Irmão ' + bros + ':</div><div class="content"><span><input class="form-control" placeholder="Introduzir irmãos" id=bros/> </span></div>';
 
-                                            <label>Grupo</label>
-                                        <select>
-                                            <option value="saab">Creche do Gi</option>
-                                            <option value="volvo">Casa Poente</option>
-                                            <option value="mercedes">Casa Nascente</option>
+                                                objTo.appendChild(divtest)
+                                            }
+                                        </script>
+                                        <input type="button" id="more_bros" onclick="add_fields();" value="Add More"/>
+                                        <br>
+
+                                        <br>
+                                        <label>Grupo</label>
+                                        <select required>
+                                            <option value="">None</option>
+                                            <option value="CG">Creche do Gi</option>
+                                            <option value="CP">Casa Poente</option>
+                                            <option value="CN">Casa Nascente</option>
                                             <option value="raiz">Casa Raiz</option>
-                                            <option value="cessacaoAcolhimento">Cessação Acolhimento</option>
+                                            <option value="cessAcolhe">Cessação Acolhimento</option>
                                             <option value="preAdmissao">Pré-Admissão</option>
-                                            <option value="apartamentoTrasicao">Apartamento de Transição</option>
+                                            <option value="apartTrasicao">Apartamento de Transição</option>
                                             <option value="apartDelfimLima">Apartamento Delfim de Lima</option>
                                         </select>
-                                            <br>
-                                            <br>
+                                        <br>
+                                        <br>
 
                                         <div class="form-group">
                                             <label>Estabelicimento Ensino</label>
@@ -155,29 +172,39 @@ $inserirNovo = $arrayInserir[$idinserir];
                                                    name="escola">
                                         </div>
 
-                                        <button type="submit" class="btn btn-primary onclick="verify()">Guardar</button>
+                                        <button type="submit" class="btn btn-primary onclick=" verify()
+                                        ">Guardar</button>
                                         <button type="reset" class="btn btn-danger">RESET</button>
 
                                     </form>
                                     <!--for-->
 
 
-                                    </TEXTAREA>
+                                   <!-- </TEXTAREA> for What!?-->
 
 
                                 </div>
                                 <?php
                                 } else if ($idinserir == 1) { ?>
                                     <div class="form-group">
-                                        <p> <a href="http://www.iptjovens.com/NovoUtilizador.php">Página antiga     </a> </p>
-                                        <label>Nome completo</label>
-                                        <input class="form-control" placeholder="Introduzir nome" id="nome" name="nome">
+                                        <p><a href="http://www.iptjovens.com/NovoUtilizador.php">Página antiga </a></p>
+
+                                        <label>Função: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</label>
+
+                                        <select  required>
+                                            <option value="">None</option>
+                                            <option value="Pr">Provedor</option>
+                                            <option value="DT">Director Técnico</option>
+                                            <option value="Tcn">Técnico</option>
+                                            <option value="Pft">Perfeito</option>
+                                            <option value="CP">Coordenador de Património</option>
+                                            <option value="CSA">Chefe dos Serviços Administativos</option>
+                                        </select>
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Função</label>
-                                        <input class="form-control" placeholder="Introduzir função do novo utilizador"
-                                               id="funcao" name="funcao">
+                                        <label>Nome completo</label>
+                                        <input class="form-control" placeholder="Introduzir nome" id="nome" name="nome">
                                     </div>
 
                                     <div class="form-group">
@@ -185,6 +212,26 @@ $inserirNovo = $arrayInserir[$idinserir];
                                         <input class="form-control" placeholder="email@exemplo.com" id="email"
                                                name="email" type="email"
                                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                                    </div>
+
+                                    <label>Grupo:  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</label>
+                                    <select required>
+                                        <option value="">None</option>
+                                        <option value="CG">Creche do Gi</option>
+                                        <option value="CP">Casa Poente</option>
+                                        <option value="CN">Casa Nascente</option>
+                                        <option value="raiz">Casa Raiz</option>
+                                        <option value="cessAcolhe">Cessação Acolhimento</option>
+                                        <option value="preAdmissao">Pré-Admissão</option>
+                                        <option value="apartTrasicao">Apartamento de Transição</option>
+                                        <option value="apartDelfimLima">Apartamento Delfim de Lima</option>
+                                    </select>
+                                    <br> <br> <br>
+
+                                    <div class="form-group">
+                                        <label>Login</label>
+                                        <input class="form-control" placeholder="Introduzir login do novo utilizador"
+                                               id="login" name="login">
                                     </div>
 
                                     <div class="form-group">
@@ -200,41 +247,68 @@ $inserirNovo = $arrayInserir[$idinserir];
                                                name="repetir" type="password"
                                                pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
                                     </div>
+
+
+
+
+                                    <button type="submit" class="btn btn-primary onclick=" verify()
+                                    ">Guardar</button>
+                                    <button type="reset" class="btn btn-danger">RESET</button>
+
                                     <?php
-                                } else if ($idinserir == 2) {?>
+                                } else if ($idinserir == 2) { ?>
                                     <a href="http://www.iptjovens.com/AniversariosEventos.php">Página antiga</a>
+                                    <div class="form-group">
+                                        <label>Nome do evento</label>
+                                        <input class="form-control" placeholder="Introduzir nome do evento"
+                                               id="id"
+                                               name="id">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Nome completo</label>
+                                        <input class="form-control" placeholder="Introduzir nome" id="nome"
+                                               name="nome" required>
+                                    </div>
+
                                     <?php
                                     echo "";
-                                } else if ($idinserir == 3) {?>
+                                } else if ($idinserir == 3) { ?>
                                     <a href="http://www.iptjovens.com/adicionarContato.php">Página antiga</a>
                                     <?php
                                     echo "";
-                                } else if ($idinserir == 4) {?>
+                                } else if ($idinserir == 4) { ?>
                                     <p>Ainda não existe página para a comunicação interna</p>
                                     <!--<a href="./">Ainda não existe página para a comunicação interna</a>-->
                                     <?php
                                     echo "";
-                                } else if ($idinserir == 5) {?>
+                                } else if ($idinserir == 5) { ?>
                                     <a href="http://www.iptjovens.com/registoSOS.php">Página registoSOS</a> <br>
-                                    <a href="http://www.iptjovens.com/registoAgressoes.php">Página registoAgressoes</a> <br>
-                                    <a href="http://www.iptjovens.com/registoSuspensoes.php">Página registpSuspensoes</a> <br>
-                                    <a href="http://www.iptjovens.com/registoConsumos.php">Página registoConsumos</a> <br>
-                                    <a href="http://www.iptjovens.com/registoDinamica.php">Página registoDinamica</a> <br>
-                                    <a href="http://www.iptjovens.com/registoDinamicaGrupo.php">Página registoDinamicaGrupo</a> <br>
-                                    <a href="http://www.iptjovens.com/Registo_Fugas.php?Btn=Editar">Página registoFugas</a> <br>
-                                    <a href="http://www.iptjovens.com/Registos_noite_fim_de_semana.php">Página registoNoiteFdSemana</a> <br>
+                                    <a href="http://www.iptjovens.com/registoAgressoes.php">Página registoAgressoes</a>
+                                    <br>
+                                    <a href="http://www.iptjovens.com/registoSuspensoes.php">Página
+                                        registpSuspensoes</a> <br>
+                                    <a href="http://www.iptjovens.com/registoConsumos.php">Página registoConsumos</a>
+                                    <br>
+                                    <a href="http://www.iptjovens.com/registoDinamica.php">Página registoDinamica</a>
+                                    <br>
+                                    <a href="http://www.iptjovens.com/registoDinamicaGrupo.php">Página
+                                        registoDinamicaGrupo</a> <br>
+                                    <a href="http://www.iptjovens.com/Registo_Fugas.php?Btn=Editar">Página
+                                        registoFugas</a> <br>
+                                    <a href="http://www.iptjovens.com/Registos_noite_fim_de_semana.php">Página
+                                        registoNoiteFdSemana</a> <br>
                                     <?php
                                     echo "<div class=\"form-group\">
                                                 <label>Enviar ficheiro</label>
                                                 <input type=\"file\"></div>";
 
-                                } else if ($idinserir == 6) {?>
+                                } else if ($idinserir == 6) { ?>
                                     <a href="http://localhost/teste_recuperacaoBD/listafornecedores.php">Fornecedores</a>
                                     <a href="http://www.iptjovens.com/listafornecedores.php">Lista de Fornecedores</a>
                                     <?php
                                     echo "";
-                                } else if ($idinserir == 7) {?>
-
+                                } else if ($idinserir == 7) { ?>
 
 
                                     <?php
